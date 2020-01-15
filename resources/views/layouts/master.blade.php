@@ -59,8 +59,8 @@
 
 
         <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="main-panel">
+            <div class="content-wrapper">
             <!-- Page Title Header Starts-->
 
 
@@ -83,9 +83,9 @@
           <!-- END footer -->
 
           <!-- partial -->
-        </div>
+          </div>
         <!-- main-panel ends -->
-      </div>
+        </div>
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
