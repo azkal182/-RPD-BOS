@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(komp2TableSeeder::class);
         $this->call(komp3TableSeeder::class);
         $this->call(komp4TableSeeder::class);
+        $this->call(ComponentTableSeeder::class);
+
 
     }
 }
