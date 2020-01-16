@@ -29,7 +29,8 @@ class AnggaranController extends Controller
   public function komp1s()
   {
     $komp1s = komp1s::all();
-    return view('admin.anggaran', compact('komp1s'));
+    $parentcomponent = \App\Component::whereNULL('parent_id')->get();
+    return view('admin.anggaran', compact(['komp1s', 'parentcomponent']));
   }
 
   public function komp2s(Request $request)
