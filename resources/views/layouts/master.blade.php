@@ -16,6 +16,12 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'>
 
 
+
+  {{-- plugin Acollapse table --}}
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  {{-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> --}}
+
+
     {{-- plugin select2 --}}
 
 
@@ -107,6 +113,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    {{-- plugin acolapse  --}}
+
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> --}}
+    <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Creating-Collapsible-Table-Rows-aCollapTable/jquery.aCollapTable.js"></script>
+
     {{-- plugin select2 --}}
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'></script>
@@ -190,6 +202,16 @@
       $( ".select2-single" ).select2({
         placeholder: 'Select a State…',
         width: null
+      });
+
+
+      $(document).ready(function(){
+        $('.collaptable').aCollapTable({
+          startCollapsed: true,
+          addColumn: false,
+          plusButton: '<span class="i">+</span>',
+          minusButton: '<span class="i">-</span>'
+        });
       });
 
       // $( ".modal" ).modal();

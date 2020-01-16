@@ -380,152 +380,74 @@
                 <div class="card-body">
                   <h1 class="text-center card-title">RENCANA  PENGGUNAAN DANA BOS SMK</h1>
 
-                  <table class="table table-bordered">
+                  <div class="table-responsive">
 
-                    	<tbody>
-                        <tr>
-                    			<td rowspan="2">NO</td>
-                    			<td rowspan="2">NO KODE</td>
-                    			<td colspan="7" rowspan="2">URAIAN</td>
-                    			<td rowspan="2">JUMLAH</td>
-                    			<td colspan="4" class="text-center">TRIWULAN</td>
-                    		</tr>
-                    		<tr>
-                    			<td>TRIWULAN 1</td>
-                    			<td>TRIWULAN 2</td>
-                    			<td>TRIWULAN 3</td>
-                    			<td>TRIWULAN 4</td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td>VOL</td>
-                    			<td>SATUAN</td>
-                    			<td>HARGA SATUAN</td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="7">PENGEMBANGAN PERPUSTAKAAN</td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="7">A. Buku Teks Pelajaran</td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="6">1). PENYELENGGARA KURIKULUM 2013</td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="5">a). Buku Teks Pelajaran Siswa Kelas X  (baru melaksanakan kurikulum 2013 mulai Tahun 2017 ini) </td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td>-  Pendidikan Agama Islam</td>
-                    			<td>66</td>
-                    			<td>EXP</td>
-                    			<td>Rp. 14.500</td>
-                    			<td>Rp. 957.000</td>
-                    			<td></td>
-                    			<td>Rp. 957.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    	</tbody>
+                   <table id="tree-table"  border="1" class="collaptable table table-hover table-bordered">
+                 <thead class="thead-light">
+                   <tr>
+                     <th class="text-center" rowspan="2">No</th>
+                     <th class="text-center" rowspan="2">No Kode</th>
+                     <th class="text-center" colspan="4" rowspan="2">Uraian</th>
+                     <th class="text-center" rowspan="2">Jumlah</th>
+                     <th class="text-center" colspan="4">Triwulan</th>
+                   </tr>
+                   <tr>
+                     <th>Triwulan 1</th>
+                     <th>Triwulan 2</th>
+                     <th>Triwulan 3</th>
+                     <th>Triwulan 4</th>
+                   </tr>
+                   <tr>
+                     <th></th>
+                     <th></th>
+                      <th></th>
+                     <th>VOL</th>
+                     <th>SATUAN</th>
+                     <th>HARGA SATUAN</th>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                   </tr>
+                 </thead>
+                 <tbody>
 
-                  </table>
+                   @foreach($parentcomponent as $component)
+                   <tr data-id="{{$component->id}}" data-parent="" data-level="1">
+                     <td class="text-center" >{{$component->id}}</td>
+                     <td></td>
+                      <td data-column="name">{{$component->name}}</td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                   </tr>
+                                     @if(count($component->subcomponent))
+                                                   @include('admin.SubComponent',['subcomponents' => $component->subcomponent, 'dataParent' => $component->id , 'dataLevel' => 1])
+                                               @endif
+                                   @endforeach
+                 </tbody>
+                </table>
+
+                  </div>
+
+
                 </div>
               </div>
             </div>
 <!-- Page Title Header Ends-->
+
+<div>
+
+
+</div>
+
+
 
 
 
