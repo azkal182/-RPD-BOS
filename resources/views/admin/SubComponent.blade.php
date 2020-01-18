@@ -2,7 +2,7 @@
 <tr data-id="{{$subcomponent->id}}" data-parent="{{$subcomponent->parent_id}}" data-level="{{$dataLevel + 1}}">
       <td></td>
       <td></td>
-       <td data-column="name">{{$subcomponent->name}} id saya {{$subcomponent->id}} jadi {{$subcomponent->id + 1}}</td>
+       <td data-column="name">&nbsp&nbsp&nbsp{{$subcomponent->name}} id saya {{$subcomponent->id}} jadi {{$subcomponent->id + 1}}</td>
       <td></td>
       <td></td>
       <td></td>
