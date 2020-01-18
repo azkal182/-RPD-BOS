@@ -77,3 +77,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # -RPD-BOS
+Tutorial install Aplikasi RPD-BOS
+jalankan perintah pada terminal atau CMD
+    -composer update
+    -cp .env.example .env
+    -php artisan key:generate
+    -php artisan config:clear
+    -php artisan config:cache
