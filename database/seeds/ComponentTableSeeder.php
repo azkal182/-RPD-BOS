@@ -168,7 +168,25 @@ class ComponentTableSeeder extends Seeder
       [
         'name' => 'D. Magang Guru di Industri',
         'parent_id' => 12
+      ],
+
+
+      [
+        'name' => ' 1) PENYELENGGARA KURIKULUM 2013',
+        'parent_id' => 13
+      ],
+      [
+        'name' => ' 2) PENYELENGGARA KURIKULUM 2006',
+        'parent_id' => 13
+      ],
+      [
+        'name' => ' 1).  Alat Praktikum IPA',
+        'parent_id' => 15
       ]
+
+
+
+
 
       ]);
     }

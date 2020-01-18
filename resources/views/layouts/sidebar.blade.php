@@ -70,5 +70,14 @@
         </ul>
       </div>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('logout') }}"
+         onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();"
+          {{ __('Logout') }}>
+        <i class="menu-icon typcn typcn-user-outline"></i>
+        <span class="menu-title"></span>
+      </a>
+    </li>
   </ul>
 </nav>

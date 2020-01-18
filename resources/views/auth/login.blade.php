@@ -32,9 +32,21 @@
                   @csrf
 
                   <div class="form-group">
-                    <label class="label">{{ __('E-Mail Address') }}</label>
+                    <label class="label">{{ __('E-Mail or Username') }}</label>
                     <div class="input-group">
-                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                      <input id="username" type="text" class="form-control @error('email') is-invalid @enderror ||  @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                            <i class="mdi mdi-check-circle-outline"></i>
+                          </span>
+                        </div>
+
+                      @error('username')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
 
                       @error('email')
                           <span class="invalid-feedback" role="alert">
@@ -42,17 +54,21 @@
                           </span>
                       @enderror
 
-                      <div class="input-group-append">
-                        <span class="input-group-text">
-                          <i class="mdi mdi-check-circle-outline"></i>
-                        </span>
-                      </div>
+
                     </div>
                   </div>
+
+
                   <div class="form-group">
                     <label class="label">{{ __('Password') }}</label>
                     <div class="input-group">
                       <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                            <i class="mdi mdi-check-circle-outline"></i>
+                          </span>
+                        </div>
 
                       @error('password')
                           <span class="invalid-feedback" role="alert">
@@ -60,11 +76,7 @@
                           </span>
                       @enderror
 
-                      <div class="input-group-append">
-                        <span class="input-group-text">
-                          <i class="mdi mdi-check-circle-outline"></i>
-                        </span>
-                      </div>
+
                     </div>
                   </div>
                   <div class="form-group">

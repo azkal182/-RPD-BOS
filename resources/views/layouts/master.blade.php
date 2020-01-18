@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset ('adminTemplate/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset ('adminTemplate/assets/vendors/iconfonts/ionicons/css/ionicons.css') }}">
@@ -117,7 +120,7 @@
 
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> --}}
-    <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Creating-Collapsible-Table-Rows-aCollapTable/jquery.aCollapTable.js"></script>
+    <script src="{{ asset ('js/jquery.aCollapTable.js') }}"></script>
 
     {{-- plugin select2 --}}
 
@@ -207,12 +210,16 @@
 
       $(document).ready(function(){
         $('.collaptable').aCollapTable({
-          startCollapsed: true,
+          startCollapsed: false,
           addColumn: false,
-          plusButton: '<span class="i">+</span>',
-          minusButton: '<span class="i">-</span>'
+          plusButton: '<i class="fa fa-chevron-right"></i>',
+          minusButton: '<i class="fa fa-chevron-down"></i>'
+
+
         });
       });
+
+
 
       // $( ".modal" ).modal();
 
