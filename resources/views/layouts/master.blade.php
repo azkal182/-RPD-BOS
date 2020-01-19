@@ -21,7 +21,7 @@
 
 
   {{-- plugin Acollapse table --}}
-  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  {{-- <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> --}}
   {{-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> --}}
 
 
@@ -30,6 +30,15 @@
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.7/select2-bootstrap.min.css'>
+
+
+
+
+
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- endinject -->
     <!-- plugin css for this page -->
@@ -120,11 +129,12 @@
 
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> --}}
-    <script src="{{ asset ('js/jquery.aCollapTable.js') }}"></script>
+    {{-- <script src="{{ asset ('js/jquery.aCollapTable.js') }}"></script> --}}
 
     {{-- plugin select2 --}}
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'></script>
+    <script src="https://www.jqueryscript.net/demo/Minimal-Tree-Table-jQuery-Plugin-For-Bootstrap-TreeTable/js/javascript.js"></script>
 
 
 
@@ -208,16 +218,16 @@
       });
 
 
-      $(document).ready(function(){
-        $('.collaptable').aCollapTable({
-          startCollapsed: false,
-          addColumn: false,
-          plusButton: '<i class="fa fa-chevron-right"></i>',
-          minusButton: '<i class="fa fa-chevron-down"></i>'
-
-
-        });
-      });
+      // $(document).ready(function(){
+      //   $('.collaptable').aCollapTable({
+      //     startCollapsed: false,
+      //     addColumn: false,
+      //     plusButton: '<i class="fa fa-chevron-right"></i>',
+      //     minusButton: '<i class="fa fa-chevron-down"></i>'
+      //
+      //
+      //   });
+      // });
 
 
 

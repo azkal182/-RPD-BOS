@@ -12,7 +12,7 @@ use App\komp2s;
 use App\komp3s;
 use App\komp4s;
 use App\detail_komps;
-
+use \App\Component;
 class AnggaranController extends Controller
 {
 
@@ -29,8 +29,17 @@ class AnggaranController extends Controller
   public function komp1s()
   {
     $komp1s = komp1s::all();
-    $parentcomponent = \App\Component::whereNULL('parent_id')->get();
-    return view('admin.anggaran', compact(['komp1s', 'parentcomponent']));
+
+    $parentcomponent = Component::whereNULL('parent_id')->get();
+    $detailtcomponent = Component::where('level', '=', '5')->get();
+    $all = \App\Component::all();
+
+
+    $con = DB::table('Components')
+            ->leftJoin('posts', 'detail_components.id', '=', 'posts.user_id')
+            ->get();
+    //dd($all);
+    return view('treeview', compact(['komp1s', 'parentcomponent', 'detailtcomponent', 'all']));
 
   }
 

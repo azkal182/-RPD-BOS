@@ -1,346 +1,588 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>jQuery aCollapTable Plugin Demos</title>
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-</head>
+<style>
+body { background-color:#fafafa; font-family:'Open Sans';}
+.container { margin:150px auto;}
+    .treegrid-indent {
+        width: 0px;
+        height: 16px;
+        display: inline-block;
+        position: relative;
+    }
 
-<body>
-{{--
-<div class="container" style="margin-top:150px;">
-<h1>jQuery aCollapTable Plugin Demos</h1>
- <div class="well">
-          <a href="javascript:void(0);" class="btn btn-primary act-button-expand">+ Expand</a>
-          <a href="javascript:void(0);" class="btn btn-primary act-button-collapse">- Collapse</a>
-          <a href="javascript:void(0);" class="btn btn-primary act-button-expand-all ">+ Expand All</a>
-          <a href="javascript:void(0);" class="btn btn-primary act-button-collapse-all">- Collapse All</a>
+    .treegrid-expander {
+        width: 0px;
+        height: 16px;
+        display: inline-block;
+        position: relative;
+        left:-17px;
+        cursor: pointer;
+    }
+</style>
+
+@extends('layouts.master')
+
+@section('content')
+
+  <style media="screen">
+    .act-tr-level-1{
+      background-color : #ffff8d;
+
+
+    }
+
+    .act-tr-level-1:hover{
+      background-color: #ffea00 !important;
+    }
+
+    .act-tr-level-2{
+      background-color : #bbdefb;
+    }
+
+    .act-tr-level-2:hover{
+      background-color : #64b5f6 !important;
+
+    }
+}
+  </style>
+<!-- Page Title Header Starts-->
+<div class="row page-title-header">
+    <div class="col-12">
+        <div class="page-header">
+            <h4 class="page-title">Dashboard</h4>
+            <div class="quick-link-wrapper w-100 d-md-flex flex-md-wrap">
+                <ul class="quick-links">
+                    <li><a href="#">ICE Market data</a></li>
+                    <li><a href="#">Own analysis</a></li>
+                    <li><a href="#">Historic market data</a></li>
+                </ul>
+                <ul class="quick-links ml-auto">
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Watchlist <span>
+                      <i class="mdi mdi-check-circle-outline"></i>
+                    </span></a></li>
+                </ul>
+            </div>
         </div>
-<table class="collaptable table table-striped">
-  <tr>
-    <th>#</th>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr data-id="1" data-parent="">
-    <td>1</td>
-    <td>Element 1 data-id="1" data-parent=""</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="2" data-parent="1">
-    <td>1.1</td>
-    <td>Element 2 data-id="2" data-parent="1"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="3" data-parent="1">
-    <td>1.2</td>
-    <td>Element 3 data-id="3" data-parent="1"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="6" data-parent="3">
-    <td>1.2.1</td>
-    <td>Element 6 data-id="6" data-parent="3"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="7" data-parent="3">
-    <td>1.2.2</td>
-    <td>Element 7 data-id="7" data-parent="3"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="8" data-parent="3">
-    <td>1.2.3</td>
-    <td>Element 8 data-id="8" data-parent="3"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="4" data-parent="">
-    <td>2</td>
-    <td>Element 4 data-id="4" data-parent=""</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="5" data-parent="4">
-    <td>2.1</td>
-    <td>Element 5 data-id="5" data-parent="4"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
+    </div>
 
-  <tr data-id="9" data-parent="">
-    <td>3</td>
-    <td>Element 5 data-parent="4"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-  <tr data-id="10" data-parent="9">
-    <td>3.1</td>
-    <td>Element 5 data-parent="4"</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.</td>
-  </tr>
-<tr data-id="11" data-parent="10">
-  <td>3.1.1</td>
-  <td>Element 5 data-parent="4"</td>
-  <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.</td>
-</tr>
+
+    <div class="col-md-12">
+
+        <div class="sort-wrapper" style="width: 100%;">
+            <button type="button" id="myBtn" class="btn btn-primary toolbar-item" data-toggle="modal" data-target="#myModal">Tambah Anggaran</button>
 
 
 
+            <!-- Modal content-->
+            <!-- Modal -->
+            <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="" action="index.html" method="post">
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Komponen 1</label>
+                                    <select class="form-control myselect2" id="SelectComponent1">
+                                        <option>=== Select Komponen 1 ===</option>
+                                        @foreach ($komp1s as $key => $value)
+                                        <option value="{{$value->id_komp1}}">{{ $value->t_komp1 }}</option>
+                                        @endforeach
 
-</table>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Komponen 2</label>
+                                    <select class="form-control myselect2" id="SelectComponent2">
+                                        <option value="0" disabled="true" selected="true">=== Select Komponen 2 ===</option>
+
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Komponen 3</label>
+                                    <select class="form-control myselect2" id="SelectComponent3">
+                                        <option></option>
+
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Komponen 4</label>
+                                    <select class="form-control myselect2" id="SelectComponent4">
+                                        <option></option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Detail Komponen</label>
+                                    <select class="form-control myselect2" id="SelectDetailComponent">
+                                        <option></option>
+
+
+                                    </select>
+                                </div>
+
+                                {{-- <div class="form-group form-check">
+                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                         <label class="form-check-label" for="exampleCheck1">Triwulan 1</label>
+                       </div>
+
+                       <div class="form-row">
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-4">
+                            <label for="inputCity">harga satuan</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+
+
+
+                      </div>
+
+
+
+
+
+                      <div class="form-group form-check">
+                         <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                         <label class="form-check-label" for="exampleCheck1">Triwulan 1</label>
+                       </div>
+
+                       <div class="form-row">
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-4">
+                            <label for="inputCity">harga satuan</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+
+
+
+                      </div>
+
+
+                      <div class="form-group form-check">
+                         <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                         <label class="form-check-label" for="exampleCheck1">Triwulan 1</label>
+                       </div>
+
+                       <div class="form-row">
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-4">
+                            <label for="inputCity">harga satuan</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+
+
+
+                      </div>
+
+
+                      <div class="form-group form-check">
+                         <input type="checkbox" class="form-check-input" id="exampleCheck4">
+                         <label class="form-check-label" for="exampleCheck1">Triwulan 1</label>
+                       </div>
+
+                       <div class="form-row">
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-1">
+                            <label for="inputCity">vol</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label for="inputState">sat</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-md-4">
+                            <label for="inputCity">harga satuan</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div> --}}
+
+
+
+                                {{-- </div> --}}
+
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="dropdown ml-lg-auto ml-3 toolbar-item">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownexport" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownexport">
+                    <a class="dropdown-item" href="#">Export as PDF</a>
+                    <a class="dropdown-item" href="#">Export as DOCX</a>
+                    <a class="dropdown-item" href="#">Export as CDR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{{-- <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="text-center card-title">RENCANA PENGGUNAAN DANA BOS SMK</h1>
+
+            <div class="table-responsive">
+
+                <table id="tree-table" border="1" class="collaptable table table-hover table-bordered ">
+                    <thead class="thead-light">
+                        <tr>
+                            <th rowspan="2"></th>
+                            <th class="text-center align-middle" rowspan="2">No</th>
+                            <th class="text-center align-middle" rowspan="2">No Kode</th>
+                            <th class="text-center align-middle" colspan="4" rowspan="2">Uraian</th>
+                            <th class="text-center align-middle" rowspan="2">Jumlah</th>
+                            <th class="text-center align-middle" colspan="4">Triwulan</th>
+                        </tr>
+                        <tr>
+                            <th>Triwulan 1</th>
+                            <th>Triwulan 2</th>
+                            <th>Triwulan 3</th>
+                            <th>Triwulan 4</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>VOL</th>
+                            <th>SATUAN</th>
+                            <th>HARGA SATUAN</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach($parentcomponent as $component)
+                        <tr class="table-danger" data-id="{{$component->id}}" data-level="5" data-parent="" data-level="0">
+                            <td></td>
+                            <td class="text-center">{{$component->id}}</td>
+                            <td></td>
+                            <td data-column="name">{{$component->name}}</td>
+                            <td>{{$component->level}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        @if(count($component->subcomponent))
+                            @include('admin.SubComponent',['subcomponents' => $component->subcomponent, 'dataParent' => $component->id , 'dataLevel' => 1])
+                            @endif
+                            @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- Page Title Header Ends-->
+
+<div>
+
+
 </div> --}}
 
 
-<div class="">
-  <table class="collaptable table table-striped">
-    <tr>
-      <<th>#</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Description</th>
-
-    </tr>
-
-    <tr data-id="1" data-parent="" >
-      <td >NO</td>
-      <td ></td>
-      <td >RENCANA  PENGGUNAAN DANA BOS SMK</td>
-      <td ></td>
-      <td ></td>
-
-    </tr>
-
-
-    <tr data-id="2" data-parent="" >
-      <td >NO</td>
-      <td ></td>
-      <td >PENERIMAAN PESERTA DIDIK BARU DAN DAFTAR ULANG </td>
-      <td ></td>
-    </tr>
 
 
 
 
-  </table>
+<div class="card">
+    <div class="card-body">
+        <h1 class="text-center card-title">RENCANA PENGGUNAAN DANA BOS SMK</h1>
+
+        <div class="table-responsive">
+
+            <table id="tree-table" border="1" class="collaptable table table-hover table-bordered ">
+                <thead class="thead-light">
+                    <tr>
+                        <th rowspan="2"></th>
+                        <th class="text-center align-middle" rowspan="2">No</th>
+                        <th class="text-center align-middle" rowspan="2">No Kode</th>
+                        <th class="text-center align-middle" colspan="4" rowspan="2">Uraian</th>
+                        <th class="text-center align-middle" rowspan="2">Jumlah</th>
+                        <th class="text-center align-middle" colspan="4">Triwulan</th>
+                    </tr>
+                    <tr>
+                        <th>Triwulan 1</th>
+                        <th>Triwulan 2</th>
+                        <th>Triwulan 3</th>
+                        <th>Triwulan 4</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>VOL</th>
+                        <th>SATUAN</th>
+                        <th>HARGA SATUAN</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach($parentcomponent as $component)
+                    <tr data-id="{{$component->id}}" data-level="1" data-parent="" data-level="{{$component->level}}">
+                        <td class="text-center">{{$component->id}}</td>
+                        <td></td>
+                        <td data-column="name" colspan="2">{{$component->name}}</td>
+                        {{-- <td></td> --}}
+                        <td>{{$component->level}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+                    @if(count($component->detailcomponent))
+                        @include('admin.detailcomponent',['detailcomponents' => $component->detailcomponent, 'dataParent' => $component->id , 'dataLevel' => 1])
+
+                    @endif
+
+                    @if(count($component->subcomponent))
+
+                        @include('admin.SubComponent',['subcomponents' => $component->subcomponent, 'dataParent' => $component->id , 'dataLevel' => 1])
+                        @endif
+                        @endforeach
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
 </div>
 
-<div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h1 class="text-center card-title">RENCANA  PENGGUNAAN DANA BOS SMK</h1>
-
-                  <table class="table table-bordered">
-
-                    	<tbody>
-                        <tr>
-                    			<td rowspan="2">NO</td>
-                    			<td rowspan="2">NO KODE</td>
-                    			<td colspan="7" rowspan="2">URAIAN</td>
-                    			<td rowspan="2">JUMLAH</td>
-                    			<td colspan="4" class="text-center">TRIWULAN</td>
-                    		</tr>
-                    		<tr>
-                    			<td>TRIWULAN 1</td>
-                    			<td>TRIWULAN 2</td>
-                    			<td>TRIWULAN 3</td>
-                    			<td>TRIWULAN 4</td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td>VOL</td>
-                    			<td>SATUAN</td>
-                    			<td>HARGA SATUAN</td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="7">PENGEMBANGAN PERPUSTAKAAN</td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="7">A. Buku Teks Pelajaran</td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="6">1). PENYELENGGARA KURIKULUM 2013</td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td>Rp. 29.584.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td colspan="5">a). Buku Teks Pelajaran Siswa Kelas X  (baru melaksanakan kurikulum 2013 mulai Tahun 2017 ini) </td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td>-  Pendidikan Agama Islam</td>
-                    			<td>66</td>
-                    			<td>EXP</td>
-                    			<td>Rp. 14.500</td>
-                    			<td>Rp. 957.000</td>
-                    			<td></td>
-                    			<td>Rp. 957.000</td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    		<tr>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    			<td></td>
-                    		</tr>
-                    	</tbody>
-
-                  </table>
-                </div>
-              </div>
-            </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="{{asset('js/jquery.aCollapTable.js')}}"></script>
-<script>
-$(document).ready(function(){
-  $('.collaptable').aCollapTable({
-    startCollapsed: true,
-    addColumn: false,
-    plusButton: '<span class="i">+</span>',
-    minusButton: '<span class="i">-</span>'
-  });
-});
-</script>
-<!-- <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })(); -->
-
-</script>
-
-</body>
-</html>
 
 
 
-{{--
-             @foreach($data as $row)
-                <tr>
-            <td>{{ $row->id_komp1 }}</td>
 
 
-            <td>{{ $row->t_komp1 }}</td>
-            @endforeach
-            </tr>
-            @foreach($data as $row)
-               <tr>
-            <td>{{ $row->t_komp2 }}</td>
-            @endforeach
-            </tr>
-            @foreach($data as $row)
-               <tr>
-            <td>{{ $row->t_komp3 }}</td>
-            @endforeach
-            </tr>
-            @foreach($data as $row)
-               <tr>
-            <td>{{ $row->t_komp4 }}</td>
-            @endforeach
-            </tr>
-            @foreach($data as $row)
-               <tr>
-            <td>{{ $row->t_detail_komp }}</td>
-            @endforeach --}}
+
+
+
+
+
+@endsection

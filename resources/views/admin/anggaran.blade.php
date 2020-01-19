@@ -3,25 +3,17 @@
 @section('content')
 
   <style media="screen">
-    .act-tr-level-1{
-      background-color : #ffff8d;
+  .table-level2, .table-level2>td, .table-level2>th {
+    background-color: #ffeeba
+  }
 
+  .table-hover .table-level2:hover {
+    background-color: #ffe8a1
+  }
 
-    }
-
-    .act-tr-level-1:hover{
-      background-color: #ffea00 !important;
-    }
-
-    .act-tr-level-2{
-      background-color : #bbdefb;
-    }
-
-    .act-tr-level-2:hover{
-      background-color : #64b5f6 !important;
-
-    }
-}
+  .table-hover .table-level2:hover>td, .table-hover .table-level2:hover>th {
+    background-color: #ffe8a1
+  }
   </style>
 <!-- Page Title Header Starts-->
 <div class="row page-title-header">
