@@ -24,6 +24,10 @@ Route::get('/treeview', function () {
 });
 
 
+Route::get('newlayout', function (){
+  return view('newlayout');
+});
+
 
 
 Auth::routes();
@@ -38,7 +42,7 @@ Route::get('/tes', function(){
   return view('tes');
 });
 
-Route::get('/anggaran', 'AnggaranController@index');
+//Route::get('/anggaran', 'AnggaranController@index');
 Route::get('/anggaran', 'AnggaranController@komp1s');
 Route::get('/json-komp2', 'AnggaranController@komp2s');
 Route::get('/json-komp3', 'AnggaranController@komp3s');

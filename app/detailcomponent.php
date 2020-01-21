@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class detailcomponent extends Model
 {
-  public function test(){
 
-      return $this->hasMany('App\component', 'parent_id');
+  protected $table = "detail_components";
+  public function parent(){
+
+      return $this->BelongsTo('App\component', 'components_id');
 
   }
 }

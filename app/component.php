@@ -10,7 +10,7 @@ class component extends Model
 
     public function subcomponent(){
 
-        return $this->hasMany('App\component', 'parent_id')->where('level', '!=','5' );
+        return $this->hasMany('App\component', 'parent_id');
 
     }
 
@@ -18,5 +18,15 @@ class component extends Model
 
         return $this->hasMany('App\component', 'parent_id')->where('level', '=','5' );
 
+    }
+
+    public function telepon()
+    {
+    	return $this->hasMany('App\detailcomponent', 'components_id');
+    }
+
+    public function telepon2()
+    {
+    	return $this->BelongsTo('App\detailcomponent', 'components_id');
     }
 }

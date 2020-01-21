@@ -15,10 +15,15 @@ class CreateDetailcomponentsTable extends Migration
     {
         Schema::create('detail_components', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('parent_id');
+            $table->string('detail_component');
+            $table->unsignedBigInteger('components_id');
             $table->integer('vol');
             $table->string('satuan');
             $table->integer('harga_satuan');
+            $table->integer('level');
+
+
+            $table->foreign('components_id')->references('id')->on('components')->onDelete('cascade');
         });
     }
 

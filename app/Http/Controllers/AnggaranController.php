@@ -32,14 +32,10 @@ class AnggaranController extends Controller
 
     $parentcomponent = Component::whereNULL('parent_id')->get();
     $detailtcomponent = Component::where('level', '=', '5')->get();
-    $all = \App\Component::all();
+    $tes = Component::all();
 
 
-    $con = DB::table('Components')
-            ->leftJoin('posts', 'detail_components.id', '=', 'posts.user_id')
-            ->get();
-    //dd($all);
-    return view('treeview', compact(['komp1s', 'parentcomponent', 'detailtcomponent', 'all']));
+    return view('admin.anggaran', compact(['komp1s', 'parentcomponent', 'detailtcomponent','tes']));
 
   }
 

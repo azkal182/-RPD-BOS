@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(detailkompTableSeeder::class);
+        //$this->call(detailkompTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(komp1TableSeeder::class);
         $this->call(komp2TableSeeder::class);
