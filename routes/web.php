@@ -43,7 +43,7 @@ Route::get('/tes', function(){
 });
 
 //Route::get('/anggaran', 'AnggaranController@index');
-Route::get('/anggaran', 'AnggaranController@komp1s');
+Route::get('/anggaran', 'AnggaranController@komp1s')->name('anggaran');
 Route::get('/json-komp2', 'AnggaranController@komp2s');
 Route::get('/json-komp3', 'AnggaranController@komp3s');
 Route::get('/json-komp4', 'AnggaranController@komp4s');
